@@ -71,8 +71,8 @@ Most real-world internet stuff your build (like my Flask server and my LLM Pipel
 
 What I kinda Learned (By Dummies):
 Now I know why [curl] requests are Layer 7, and why a server can fail due to problems in layer 3 (IP routing) or even layer 1 (bad WiFi).
-OSI makes it easier to debug problems (I think I need that socially (jk)) – it helps you ask: is it the app, the IP, or the cable?
-It connect to what I already learned with Flash and HTTP (Ahh, now I know what you did Dakota… Smart move, Like a fork created using a bishop and a knight!).
+OSI makes it easier to debug problems (I think I need that socially) – it helps you ask: is it the app, the IP, or the cable?
+It connect to what I already learned with Flash and HTTP (Ahh, now I know what you're teaching me Dakota!)
 
 Summary:
 The OSI Model is a standardized framework that defines seven abstraction layers governing communication between computers in a network. These layers – from Physical (Layer 1) to Application (layer 7) – provide a structured way to understand and troubleshoot network systems. I explored each layer’s responsibilities from bit-level transmission to high-level user interaction protocols. I reviewed documentation, summarized technical definitions, and connected them to real-world applications I previously worked on – such as Flask web servers, API calls using curl, HTTP request handling, and even LLM analysis. This deeper understanding enhances both my conceptual clarity and practical debugging skills when building or testing web applications. It gives me the vocabulary and structure to analyze how modern internet systems operate and where issues may arise. By learning OSI model, I’ve gained fundamental lens through which all network-based software development can be understood
