@@ -1,70 +1,122 @@
-# Flask PokeAPI Proxy Server
+✅ Flask HTTP Server Assignment - README.md
 
-This is a simple Flask HTTP server with the following features:
+This project is a simple Flask web server that demonstrates the use of common HTTP methods (GET, POST) and API interaction. It includes a health check endpoint, a JSON echo endpoint, and an external API proxy for Pokémon data via the PokeAPI.
 
-- `GET /` — returns "Hello World!"
-- `POST /echo` — accepts JSON data and echoes it back
-- `GET /pokemon/<name>` — proxies requests to the PokeAPI and returns Pokémon data
+📌 Project Summary
 
----
+Language: Python 3.6+
+Framework: Flask
+Purpose: Demonstrate understanding of HTTP methods, API endpoints, and external API calls.
+Key Concepts: RESTful routing, JSON handling, third-party APIs, environment setup
 
-## Setup and Run Instructions
+🔧 Installation Instructions
 
-### 1. Clone the repository
+1. Clone the Repository
+Replace with your actual GitHub username and repo name:
 
-```bash
 git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
 cd YOUR_REPO_NAME
 
-Create and activate a Python Virtual Environment: This isolates your Python dependencies
+2. Create and Activate a Python Virtual Environment
+This isolates project dependencies:
 
 python3 -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
+source venv/bin/activate       # macOS/Linux
+# OR
+venv\Scripts\activate          # Windows
 
-Instal Dependencies:
+3. Fix and Install Dependencies
+Ensure your requirements.txt contains:
+
+Flask==2.3.3
+requests==2.31.0
+
+Then install them:
+
 pip install -r requirements.txt
 
-Run the server: This server will start locally at HTTP://127.0.0.1:5000
+4. Run the Server
+
 python app.py
 
-Testing Endpoints: You can test endpoints using curl or any other API client
+The flash app will start on:
 
-- GET / : curl HTTP://127.0.0.1:5000/
+http://127.0.0.1:5000
 
-- POST /echo : curl -X POST http://127.0.0.1:5000/echo -H "Content-Type: application/json" -d '{"message":"hello"}'
+🔁 API Endpoints
 
-- GET /pokemon/<name> : curl HTTP://127.0.0.1:5000/pokemon/base
+✅ GET /
+Description: Basic health check to confirm server is running.
 
-Ensure you have internet access for the /pokemon/<name> endpoint, as it will fetch live data from the PokeAPI. The project will use Python 3.6+ and depends on Flash and Requests.
+Example:
 
-Explanation of Endpoints and HTTP Methods
+curl http://127.0.0.1:5000/
 
-Why these endpoints?
-This Flask server demonstrates how to handle common HTTP request types and interact with external APIs, which is fundamental in web development.
+Response:
 
-1. POST /echo
-Purpose:
-This endpoint accepts JSON data sent by the client in the body of a POST request and responds by sending the same data back. It’s a simple way to test that the server can correctly receive and parse client data.
+Hello World! -> text
 
-Why POST?
-POST requests are designed to send data to the server. Unlike GET requests (which are for retrieving data), POST includes a body, allowing clients to submit structured data like JSON. This endpoint shows how to handle incoming data payloads.
+✅ POST /echo
+Description: Accepts JSON input and echoes it back, wrapped in a dictionary.
 
-2. GET /pokemon/<name>
-Purpose:
-This endpoint acts as a proxy to the external PokeAPI. When a client requests information about a Pokémon (by name), the server forwards the request to the PokeAPI, fetches the data, and returns it. This illustrates how a backend service can integrate external APIs and serve combined or filtered data.
+Example:
 
-Why GET?
-GET requests are used to retrieve data from a server or API. Since this endpoint’s job is to fetch information (not change any data), GET is the appropriate HTTP method. The <name> in the URL path allows dynamic queries for different Pokémon.
+curl -X POST http://127.0.0.1:5000/echo \
+     -H "Content-Type: application/json" \
+     -d '{"message":"hello"}'
 
-3. GET /
-Purpose:
-A basic endpoint that returns a simple message ("Hello World!") to confirm the server is running and reachable.
+Response:
 
-Why GET?
-GET is the standard method to fetch data or status without side effects. It’s commonly used for health checks or simple information retrieval.
+{
+  "you_sent": {
+    "message": "hello"
+  }
+}
 
-Summary
-POST /echo tests receiving and handling client-sent data.
-GET /pokemon/<name> demonstrates fetching data from an external API and proxying it.
-GET / verifies server availability.
-Together, these endpoints provide a foundational example of handling common HTTP requests in a Python Flask app.
+✅ GET /pokemon/<name>
+Description: Fetches live Pokémon data from PokeAPI. Returns 404 if Pokémon not found.
+
+Example:
+
+curl http://127.0.0.1:5000/pokemon/eevee
+
+Response: Full JSON object representing the Pokémon.
+
+Error Example:
+
+curl http://127.0.0.1:5000/pokemon/unknown
+
+Response:
+
+{
+  "error": "Pokémon not found"
+}
+
+🔗 Internet access is required for this endpoint to function.
+
+📝 Code Explanation
+
+GET /
+Returns "Hello World!" — a simple GET endpoint.
+Common in health checks or minimal RESTful apps.
+POST /echo
+Accepts Content-Type: application/json and echoes back the data.
+Demonstrates how to handle client-sent JSON with a POST request.
+GET /pokemon/<name>
+Shows how to fetch external data from an API (PokeAPI).
+Uses the Pokémon name as a dynamic route parameter.
+Demonstrates how to handle external HTTP requests in Flask (requests.get()).
+
+📦 File Structure
+
+YOUR_REPO_NAME/
+├── app.py               # Main Flask app
+├── requirements.txt     # Python dependencies
+└── README.md            # Project documentation
+
+✅ Dependencies (Fixed)
+
+Flask==2.3.3
+requests==2.31.0
+
+Make sure these are the only two entries in requirements.txt.
