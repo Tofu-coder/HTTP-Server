@@ -13,18 +13,19 @@ Key Concepts: RESTful routing, JSON handling, third-party APIs, environment setu
 
 1. Clone the Repository
 Replace with your actual GitHub username and repo name:
-
+```bash
 git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
 cd YOUR_REPO_NAME
-
+```
 2. Create and Activate a Python Virtual Environment
 This isolates project dependencies:
 
+```bash
 python3 -m venv venv
 source venv/bin/activate       # macOS/Linux
 # OR
 venv\Scripts\activate          # Windows
-
+```
 3. Fix and Install Dependencies
 Ensure your requirements.txt contains:
 
