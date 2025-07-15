@@ -14,8 +14,8 @@ Key Concepts: RESTful routing, JSON handling, third-party APIs, environment setu
 1. Clone the Repository
 Replace with your actual GitHub username and repo name:
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
+git clone https://github.com/Tofu-Coder/HTTP-Server.git
+cd HTTP-Server
 ```
 2. Create and Activate a Python Virtual Environment
 This isolates project dependencies:
@@ -32,16 +32,19 @@ Ensure your requirements.txt contains:
 
 Then install them:
 
-```pip install -r requirements.txt
+```bash
+pip install -r requirements.txt
 ```
 
 4. Run the Server
 
-```python app.py
+```bash
+python app.py
 ```
 The flash app will start on:
 
-```http://127.0.0.1:5000
+```bash
+http://127.0.0.1:5000
 ```
 
 🔁 API Endpoints
@@ -51,25 +54,29 @@ Description: Basic health check to confirm server is running.
 
 Example:
 
-```curl http://127.0.0.1:5000/
+```bash
+curl http://127.0.0.1:5000/
 ```
 Response:
 
-```Hello World! -> text
+```bash
+Hello World! -> text
 ```
 ✅ POST /echo
 Description: Accepts JSON input and echoes it back, wrapped in a dictionary.
 
 Example:
 
-```curl -X POST http://127.0.0.1:5000/echo \
+```bash
+curl -X POST http://127.0.0.1:5000/echo \
      -H "Content-Type: application/json" \
      -d '{"message":"hello"}'
 ```
 
 Response:
 
-```{
+```bash
+{
   "you_sent": {
     "message": "hello"
   }
@@ -80,17 +87,20 @@ Description: Fetches live Pokémon data from PokeAPI. Returns 404 if Pokémon no
 
 Example:
 
-```curl http://127.0.0.1:5000/pokemon/eevee
+```bash
+curl http://127.0.0.1:5000/pokemon/eevee
 ```
 Response: Full JSON object representing the Pokémon.
 
 Error Example:
 
-```curl http://127.0.0.1:5000/pokemon/unknown
+```bash
+curl http://127.0.0.1:5000/pokemon/unknown
 ```
 Response:
 
-```{
+```bash
+{
   "error": "Pokémon not found"
 }
 ```
@@ -98,15 +108,22 @@ Response:
 
 📝 Code Explanation
 
-```GET /
+```bash
+GET /
 ```
 Returns "Hello World!" — a simple GET endpoint.
+
 Common in health checks or minimal RESTful apps.
-```POST /echo
+
+```bash
+POST /echo
 ```
 Accepts Content-Type: application/json and echoes back the data.
+
 Demonstrates how to handle client-sent JSON with a POST request.
-```GET /pokemon/<name>
+
+```bash
+GET /pokemon/<name>
 ```
 Shows how to fetch external data from an API (PokeAPI).
 Uses the Pokémon name as a dynamic route parameter.
@@ -114,14 +131,16 @@ Demonstrates how to handle external HTTP requests in Flask (requests.get()).
 
 📦 File Structure
 
-```YOUR_REPO_NAME/
+```bash
+YOUR_REPO_NAME/
 ├── app.py               # Main Flask app
 ├── requirements.txt     # Python dependencies
 └── README.md            # Project documentation
 ```
 ✅ Dependencies (Fixed)
 
-```Flask==2.3.3
+```bash
+Flask==2.3.3
 requests==2.31.0
 ```
 Make sure these are the only two entries in requirements.txt.
