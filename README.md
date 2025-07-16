@@ -23,8 +23,7 @@ This isolates project dependencies:
 ```bash
 python3 -m venv venv
 source venv/bin/activate       # macOS/Linux
-# OR
-venv\Scripts\activate          # Windows
+
 ```
 3. Fix and Install Dependencies
 Ensure your requirements.txt contains:
