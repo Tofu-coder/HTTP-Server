@@ -60,7 +60,7 @@ curl http://127.0.0.1:5000/
 Response:
 
 ```bash
-Hello World! -> text
+Hello World! 
 ```
 ✅ POST /echo
 Description: Accepts JSON input and echoes it back, wrapped in a dictionary.
